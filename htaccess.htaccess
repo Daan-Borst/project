@@ -1,0 +1,83 @@
+RewriteEngine on
+RewriteBase / 
+RewriteCond %{THE_REQUEST} !^[A-Z]{3,9}\ [a-zA-Z0-9\.\+_/\-\?\=\&\%\(\)\@]+\ HTTP/ [NC] 
+RewriteRule .* - [F,NS,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^home?$ index.php
+
+RewriteRule ^login?$ /pages/login.php
+RewriteRule ^logout?$ /pages/logout.php
+RewriteRule ^register?$ /pages/register.php
+
+
+RewriteRule ^premium?$ /pages/premiumcage.php
+
+RewriteRule ^afspeellijst?$ /pages/afspeellijst.php
+RewriteRule ^webplayer?$ /pages/webplayer.php
+RewriteRule ^afspeellijsten?$ /pages/afspeellijsten.php
+RewriteRule ^zoeken?$ /pages/zoeken.php
+RewriteRule ^zoeken?$ /pages/zoeken.php
+RewriteRule ^forgot?$ /pages/forgot.php
+
+
+RewriteRule ^webdev/Stylesheet?$ /css/style.css
+RewriteRule ^retrieve/header?$ /pages/_includes/_heading.php
+RewriteRule ^stylesheet?$ /asset/css/main.css
+RewriteRule ^info?$ /asset/css/info.css
+RewriteRule ^stylesheetext?$ /asset/css/extra.css
+RewriteRule ^scripts/e86?$ /asset/js/passwordvalidation.js
+RewriteRule ^scripts/e88?$ /asset/js/webplayer.js
+RewriteRule ^scripts/e87?$ /asset/js/chatcontroller.js
+RewriteRule ^afb/background?$ /asset/afb/background.jpg
+RewriteRule ^afb/background2?$ /asset/afb/background2.jpg
+RewriteRule ^afb/selector?$ /asset/afb/selector.jpg
+RewriteRule ^chatloop?$ /bin/chatloop.php
+RewriteRule ^404?$ /bin/errorhandlers/notfound.php
+RewriteRule ^403?$ /bin/errorhandlers/noaccess.php
+RewriteRule ^uploadsong?$ /pages/trackupload.php
+RewriteRule ^uploadtrack?$ /bin/controllers/uploadtrack.php
+
+RewriteRule ^resetuser?$ /pages/resetpassword.php
+RewriteRule ^adminpanel?$ /bin/controllers/adminpanel.php
+RewriteRule ^createplaylist?$ /pages/playlistcreate.php
+RewriteRule ^adminuserpanel?$ /bin/controllers/adminusers.php
+RewriteRule ^admin/deleteplaylist?$ /bin/controllers/deleteadminplaylists.php
+RewriteRule ^admin/deleteuser?$ /bin/controllers/delete.php
+RewriteRule ^admin/deletesong?$ /bin/controllers/deleteadminsongs.php
+RewriteRule ^premium/deleteuser?$ /bin/controllers/deletecurrent.php
+RewriteRule ^modpanel?$ /bin/controllers/modpanel.php
+RewriteRule ^adminsongpanel?$ /bin/controllers/adminsongs.php
+RewriteRule ^adminplaylistpanel?$ /bin/controllers/adminplaylists.php
+redirect /artistpanel /premium?page=Account-overzicht
+
+RewriteRule ^chatfunctions?$ /bin/chatengine/chatfiles/chatfunctions.js
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+RewriteRule "^/index\.php/admin" "-" [F]
+
+redirect /retrieve/ /pages/_includes/
+redirect /locale /bin/locale
+redirect /trackimage/ /lib/user/track/image/
+redirect /track/ /lib/user/track/song/
+redirect /playlistimage/ /lib/user/playlist/image/
+
+
+Options Includes FollowSymLinks
+
+DirectoryIndex index.php
+
+ErrorDocument 404 /bin/errorhandlers/notfound.php
+ErrorDocument 403 /bin/errorhandlers/noaccess.php
+
+
+
+
+<FilesMatch "\.(htaccess|htpasswd|ini|psd|log|sh|xml)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+
+
+<FilesMatch "^(db|config|session)\.php$">
+order allow,deny
+deny from all
+</FilesMatch>
