@@ -1,0 +1,70 @@
+
+.fcontainer{
+float: right;
+margin-right: 50px;
+margin-bottom: 2px;
+margin-top: 0.25px;
+font-size: 30px;
+color: rgb(218, 218, 218);
+}
+
+.main {
+  margin-top: 5%;
+  outline-style: double;
+  margin-left: 30%;
+  height: 50%;
+  width: 50%;
+}
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color: black;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.contentacc {
+  /*background-color: gray;*/
+  background:center/100% no-repeat url("asset/afb/background4.jpg");
+  border:none;
+  height: 50%;
+  width:50%;
+  margin-top: 5%;
+  outline-style: double;
+  margin-left: auto;
+  margin-right: auto;
+  padding:10px;
+
+}
+
+[type="gbd"] {
+  background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+}
+[type="gbd"]::-webkit-inner-spin-button {
+  display: none;
+}
+[type="gbd"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+.column {
+float: left;
+width: 30%;
+margin-left: 0%;
+}
+
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+@media screen and (max-width:600px) {
+.column {
+  width: 100%;
+}
+}
